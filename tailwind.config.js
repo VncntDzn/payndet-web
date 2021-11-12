@@ -7,6 +7,12 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      height: {
+        '60vh': '60vh',
+      },
+      width: {
+        '90vw': '90vw',
+      },
       fontFamily: {
         sans: ["Raleway", "sans-serif"],
       },

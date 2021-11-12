@@ -47,17 +47,22 @@ const KitsuAnimeDetails: NextPage = ({ detailsRes, reviewsRes }) => {
           <div className="px-3" key={i}>
             <YouTube
               videoId={res.attributes.youtubeVideoId} // defaults -> null
-              className="mt-3 w-full"
+              className="mt-3 w-full rounded-xl h-60vh"
               containerClassName="border-red-500"
             />
-            <CustomTabs>
-              <TabPanel>
-                <KitsuDetails content={res} />
-              </TabPanel>
-              <TabPanel>
-                <KitsuReviews content={reviewsRes} />
-              </TabPanel>
-            </CustomTabs>
+            <h1 className="text-white text-4xl my-5">
+              {res.attributes.titles.en_jp}
+            </h1>
+            <div className="xl:w-90vw flex self-center justify-center items-center">
+              <CustomTabs>
+                <TabPanel>
+                  <KitsuDetails content={res} />
+                </TabPanel>
+                <TabPanel>
+                  <KitsuReviews content={reviewsRes} />
+                </TabPanel>
+              </CustomTabs>
+            </div>
           </div>
         ))}
       </div>

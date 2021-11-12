@@ -23,6 +23,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }, // will be passed to the page component as props
   };
 };
+
+/* TODO: ${process.env.KITSU_URL}/anime?sort=-userCount` */
 const Home: NextPage = ({ result }) => {
   return (
     <>
