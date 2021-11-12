@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       height: {
         '60vh': '60vh',
+        '75vh': '75vh',
       },
       width: {
         '90vw': '90vw',

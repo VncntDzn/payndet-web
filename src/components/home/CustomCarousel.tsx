@@ -13,7 +13,7 @@ const CustomCarousel = ({ data }) => {
   return (
     <Carousel showThumbs={false} autoPlay={true}>
       {data.data.map((res: any, i: number) => (
-        <div className="block relative h-96 xl:h-60vh" key={i}>
+        <div className="block relative h-96 xl:h-75vh" key={i}>
           <Image
             src={res.attributes.coverImage.original}
             quality={100}

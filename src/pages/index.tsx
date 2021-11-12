@@ -1,31 +1,44 @@
 import type { NextPage } from "next";
-import { GetServerSideProps } from "next";
 import Head from "next/head";
 import MainLayout from "src/layouts/MainLayout";
 import axios from "axios";
-import { CustomCarousel } from "src/components";
+import { CustomCarousel, UpcomingAnime } from "src/components";
+import {
+  GetServerSideProps,
+  GetServerSidePropsContext,
+  PreviewData,
+} from "next";
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const res = await axios.get(`${process.env.KITSU_URL}/trending/anime`);
-
-  if (!res) {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
-    };
-  }
+export const getServerSideProps: GetServerSideProps = async (
+  context: GetServerSidePropsContext<any, PreviewData>
+) => {
+  const [trendingRes, popularRes, favoriteRes, upcomingRes, currentRes] =
+    await Promise.all([
+      axios.get(`${process.env.KITSU_URL}/trending/anime`),
+      axios.get(`${process.env.KITSU_URL}/anime?sort=-userCount`),
+      axios.get(`${process.env.KITSU_URL}/anime?sort=-averageRating`),
+      axios.get(`${process.env.KITSU_URL}/anime?filter[status]=upcoming`),
+      axios.get(`${process.env.KITSU_URL}/anime?filter[status]=current`),
+    ]);
 
   return {
     props: {
-      result: res.data,
-    }, // will be passed to the page component as props
+      trending: trendingRes.data,
+      popular: popularRes.data,
+      favorites: favoriteRes.data,
+      upcoming: upcomingRes.data,
+      current: currentRes.data,
+    },
   };
 };
 
-/* TODO: ${process.env.KITSU_URL}/anime?sort=-userCount` */
-const Home: NextPage = ({ result }) => {
+const Home: NextPage = ({
+  trending,
+  popular,
+  favorites,
+  upcoming,
+  current,
+}) => {
   return (
     <>
       <Head>
@@ -35,8 +48,8 @@ const Home: NextPage = ({ result }) => {
       </Head>
 
       <MainLayout>
-        {/* <LandingPage data={result.data} /> */}
-        <CustomCarousel data={result} />
+        <CustomCarousel data={trending} />
+        <UpcomingAnime data={upcoming} />
       </MainLayout>
     </>
   );
