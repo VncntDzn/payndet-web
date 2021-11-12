@@ -6,8 +6,8 @@ import Image from "next/image";
 
 const CustomCarousel = ({ data }) => {
   const router = useRouter();
-  const handleNavigation = (title: string) => {
-    router.push(`/kitsu/${title}`);
+  const handleNavigation = (id: string | number) => {
+    router.push(`/kitsu-details/${id}`);
   };
   return (
     <Carousel showThumbs={false} autoPlay={true}>
@@ -24,14 +24,14 @@ const CustomCarousel = ({ data }) => {
             layout="fill"
             objectFit="cover"
           />
-          <div className="absolute bottom-8 px-3 flex flex-col justify-start bg-gradient-to-r from-red-500 ">
+          <div className="absolute bottom-0 px-3 flex flex-col justify-start bg-gradient-to-r from-red-500 ">
             <h1 className=" text-white text-2xl font-extrabold">
               {res.attributes.titles.en_jp}
             </h1>
             <button
               className="text-red text-left hover:text-orange"
               onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
-                handleNavigation(res.attributes.titles.en_jp)
+                handleNavigation(res.id)
               }
             >
               See more
