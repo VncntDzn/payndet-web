@@ -1,7 +1,29 @@
 import type { NextPage } from "next";
+import { GetServerSideProps } from "next";
 import Head from "next/head";
+import MainLayout from "src/layouts/MainLayout";
+import axios from "axios";
+import { CustomCarousel } from "src/components";
 
-const Home: NextPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const res = await axios.get(`${process.env.KITSU_URL}/trending/anime`);
+
+  if (!res) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {
+      result: res.data,
+    }, // will be passed to the page component as props
+  };
+};
+const Home: NextPage = ({ result }) => {
   return (
     <>
       <Head>
@@ -10,9 +32,10 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1>hi</h1>
-      </main>
+      <MainLayout>
+        {/* <LandingPage data={result.data} /> */}
+        <CustomCarousel data={result} />
+      </MainLayout>
     </>
   );
 };
