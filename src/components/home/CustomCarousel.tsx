@@ -2,10 +2,8 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { useRouter } from "next/router";
 import { StarIcon } from "src/icons";
-import Image from "next/image";
-import { AxiosResponse } from "axios";
-
-const CustomCarousel = ({ data }: AxiosResponse<any, any>) => {
+import Image from "next/image"; 
+const CustomCarousel = ({ data }: { data: any }) => {
   const router = useRouter();
   const handleNavigation = (id: string | number) => {
     router.push(`/kitsu/details/${id}`);
