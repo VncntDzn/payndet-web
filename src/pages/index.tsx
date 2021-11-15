@@ -1,7 +1,45 @@
-import type { NextPage } from "next";
+import { CustomCarousel, KitsuAnime } from "src/components";
+import {
+  GetServerSideProps,
+  GetServerSidePropsContext,
+  PreviewData,
+} from "next";
+import { IndexProps } from "./types";
 import Head from "next/head";
+import MainLayout from "src/layouts/MainLayout";
+import axios from "axios";
 
-const Home: NextPage = () => {
+export const getServerSideProps: GetServerSideProps = async (
+  context: GetServerSidePropsContext<any, PreviewData>
+) => {
+  /* Retrieve Data at the same time using Promise.all */
+  const [trendingRes, popularRes, favoriteRes, upcomingRes, currentRes] =
+    await Promise.all([
+      axios.get(`${process.env.KITSU_URL}/trending/anime`),
+      axios.get(`${process.env.KITSU_URL}/anime?sort=-userCount`),
+      axios.get(`${process.env.KITSU_URL}/anime?sort=-averageRating`),
+      axios.get(`${process.env.KITSU_URL}/anime?filter[status]=upcoming`),
+      axios.get(`${process.env.KITSU_URL}/anime?filter[status]=current`),
+    ]);
+
+  return {
+    props: {
+      trending: trendingRes.data,
+      popular: popularRes.data,
+      favorites: favoriteRes.data,
+      upcoming: upcomingRes.data,
+      current: currentRes.data,
+    },
+  };
+};
+
+const Home = ({
+  trending,
+  popular,
+  favorites,
+  upcoming,
+  current,
+}: IndexProps) => {
   return (
     <>
       <Head>
@@ -10,9 +48,13 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1>hi</h1>
-      </main>
+      <MainLayout>
+        <CustomCarousel data={trending} />
+        <KitsuAnime title="Upcoming" result={upcoming} />
+        <KitsuAnime title="Popular" result={popular} />
+        <KitsuAnime title="Favorites" result={favorites} />
+        <KitsuAnime title="Current" result={current} />
+      </MainLayout>
     </>
   );
 };
