@@ -49,7 +49,7 @@ const Home: NextPage = ({
 
       <MainLayout>
         <CustomCarousel data={trending} />
-        <UpcomingAnime data={upcoming} />
+        <UpcomingAnime result={upcoming} />
       </MainLayout>
     </>
   );

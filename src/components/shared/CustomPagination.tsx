@@ -13,7 +13,7 @@ const CustomPagination = ({ pageCount, onPageChange }) => {
       marginPagesDisplayed={1}
       pageRangeDisplayed={5}
       onPageChange={onPageChange}
-      containerClassName="flex w-48 items-center justify-evenly sm:w-full"
+      containerClassName="flex w-48 items-center justify-evenly"
       pageClassName="p-1"
       activeClassName="bg-blue-dark rounded-md px-3"
     />
