@@ -2,7 +2,7 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { useRouter } from "next/router";
 import { StarIcon } from "src/icons";
-import Image from "next/image"; 
+import Image from "next/image";
 const CustomCarousel = ({ data }: { data: any }) => {
   const router = useRouter();
   const handleNavigation = (id: string | number) => {
@@ -29,7 +29,7 @@ const CustomCarousel = ({ data }: { data: any }) => {
               {res.attributes.titles.en_jp}
             </h1>
             <p className="text-left flex text-white">
-              <StarIcon className={"text-yellow-300"} />{" "}
+              Rating: {" "}
               {res.attributes.averageRating} / 100
             </p>
             <button
