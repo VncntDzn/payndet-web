@@ -4,7 +4,7 @@ import Image from "next/image";
 import ChevronRightIcon from "src/icons/ChevronRightIcon";
 import { useRouter } from "next/router";
 
-const UpcomingAnime = ({ result }) => {
+const PopularAnime = ({ result }) => {
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState(0);
   // get the current page
@@ -19,9 +19,8 @@ const UpcomingAnime = ({ result }) => {
     router.push(`/kitsu/details/${id}`);
   };
 
-
   const handleKitsuAll = () => {
-    router.push(`/kitsu/subtype/upcoming`);
+    router.push(`/kitsu/subtype/current`);
   };
   return (
     <div className="flex flex-col my-5">
@@ -30,7 +29,7 @@ const UpcomingAnime = ({ result }) => {
           onClick={handleKitsuAll}
           className="flex items-center text-red-500 xl:text-3xl"
         >
-          Upcoming <ChevronRightIcon />
+          Current <ChevronRightIcon />
         </button>
         <div className=" flex justify-center items-center text-white shadow-md">
           <CustomPagination pageCount={pageCount} onPageChange={onPageChange} />
@@ -68,6 +67,6 @@ const UpcomingAnime = ({ result }) => {
   );
 };
 
-UpcomingAnime.propTypes = {};
+PopularAnime.propTypes = {};
 
-export default UpcomingAnime;
+export default PopularAnime;

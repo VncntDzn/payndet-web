@@ -7,7 +7,7 @@ import Image from "next/image";
 const CustomCarousel = ({ data }) => {
   const router = useRouter();
   const handleNavigation = (id: string | number) => {
-    router.push(`/kitsu-details/${id}`);
+    router.push(`/kitsu/details/${id}`);
   };
   return (
     <Carousel

@@ -13,6 +13,7 @@ module.exports = {
       },
       width: {
         "90vw": "90vw",
+        "65vw": "65vw",
       },
 
       colors: {
@@ -30,7 +31,7 @@ module.exports = {
     },
   },
   variants: {
-    scrollbar: ['rounded',],
+    scrollbar: ["rounded"],
 
     extend: {},
   },

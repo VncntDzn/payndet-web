@@ -8,6 +8,7 @@ import {
   GetServerSidePropsContext,
   PreviewData,
 } from "next";
+import CurrentAnime from "src/components/home/CurrentAnime";
 
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext<any, PreviewData>
@@ -48,7 +49,9 @@ const Home: NextPage = ({
       </Head>
 
       <MainLayout>
+        
         <CustomCarousel data={trending} />
+        <CurrentAnime result={current} />
         <UpcomingAnime result={upcoming} />
       </MainLayout>
     </>

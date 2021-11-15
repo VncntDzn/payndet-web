@@ -1,18 +1,15 @@
-import MainLayout from "src/layouts/MainLayout";
-import { useRouter } from "next/router";
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { TabPanel } from "react-tabs";
 import {
   GetServerSideProps,
   GetServerSidePropsContext,
   PreviewData,
 } from "next";
+import { KitsuDetails, CustomTabs, KitsuReviews } from "src/components";
+import { MainLayout } from "src/layouts";
 import axios from "axios";
 import YouTube from "react-youtube";
-import { KitsuDetails } from "../../components/index";
-import CustomTabs from "src/components/shared/CustomTabs";
-import KitsuReviews from "src/components/home/kitsu/KitsuReviews";
 
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext<any, PreviewData>
@@ -42,18 +39,22 @@ const KitsuAnimeDetails: NextPage = ({ detailsRes, reviewsRes }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="flex flex-col justify-center items-center">
+      <div className="mt-12">
         {detailsRes.data.map((res: any, i: number) => (
-          <div className="px-3" key={i}>
+          <div
+            className="flex flex-col justify-center items-center px-3"
+            key={i}
+          >
             <YouTube
               videoId={res.attributes.youtubeVideoId} // defaults -> null
-              className="mt-3 w-full rounded-xl h-60vh"
+              className="mt-3 rounded-xl flex h-60vh w-90vw xl:w-65vw"
               containerClassName="border-red-500"
             />
-            <h1 className="text-white text-4xl my-5">
-              {res.attributes.titles.en_jp}
-            </h1>
-            <div className="xl:w-90vw flex self-center justify-center items-center">
+
+            <div className="flex self-center flex-col justify-center items-center sm:px-10 xl:w-90vw">
+              <h1 className="text-white text-2xl my-5 xl:-ml-42 xl:text-3xl">
+                {res.attributes.titles.en_jp}
+              </h1>
               <CustomTabs>
                 <TabPanel>
                   <KitsuDetails content={res} />
