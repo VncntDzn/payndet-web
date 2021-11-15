@@ -1,8 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
-import MainLayout from "src/layouts/MainLayout";
+import { MainLayout } from "src/layouts/";
 import { useRouter } from "next/router";
-import type { NextPage } from "next";
 import Head from "next/head";
 import {
   GetServerSideProps,
@@ -11,6 +8,7 @@ import {
 } from "next";
 import axios from "axios";
 import Image from "next/image";
+import { KitsuProps } from "../types";
 
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext<any, PreviewData>
@@ -35,7 +33,7 @@ export const getServerSideProps: GetServerSideProps = async (
     }, // will be passed to the page component as props
   };
 };
-const KitsuAnimeDetails: NextPage = ({ result }) => {
+const KitsuAnimeDetails = ({ result }: KitsuProps) => {
   const router = useRouter();
 
   return (
@@ -71,7 +69,5 @@ const KitsuAnimeDetails: NextPage = ({ result }) => {
     </MainLayout>
   );
 };
-
-KitsuAnimeDetails.propTypes = {};
 
 export default KitsuAnimeDetails;

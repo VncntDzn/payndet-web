@@ -1,8 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
+import { ReactNode } from "react";
 import { Navbar } from "src/components";
 
-const MainLayout = ({ children }) => {
+const MainLayout = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <Navbar />
@@ -12,7 +11,5 @@ const MainLayout = ({ children }) => {
     </>
   );
 };
-
-MainLayout.propTypes = {};
 
 export default MainLayout;

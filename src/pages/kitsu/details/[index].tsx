@@ -1,5 +1,3 @@
-import type { NextPage } from "next";
-import Head from "next/head";
 import { TabPanel } from "react-tabs";
 import {
   GetServerSideProps,
@@ -8,8 +6,10 @@ import {
 } from "next";
 import { KitsuDetails, CustomTabs, KitsuReviews } from "src/components";
 import { MainLayout } from "src/layouts";
+import { DetailsProps } from "src/pages/types";
 import axios from "axios";
 import YouTube from "react-youtube";
+import Head from "next/head";
 
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext<any, PreviewData>
@@ -30,7 +30,7 @@ export const getServerSideProps: GetServerSideProps = async (
     }, // will be passed to the page component as props
   };
 };
-const KitsuAnimeDetails: NextPage = ({ detailsRes, reviewsRes }) => {
+const KitsuAnimeDetails = ({ detailsRes, reviewsRes }: DetailsProps) => {
   return (
     <MainLayout>
       <Head>

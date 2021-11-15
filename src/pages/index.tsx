@@ -12,6 +12,7 @@ import axios from "axios";
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext<any, PreviewData>
 ) => {
+  /* Retrieve Data at the same time using Promise.all */
   const [trendingRes, popularRes, favoriteRes, upcomingRes, currentRes] =
     await Promise.all([
       axios.get(`${process.env.KITSU_URL}/trending/anime`),

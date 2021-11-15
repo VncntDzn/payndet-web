@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import Image from "next/image";
-import ChevronRightIcon from "src/icons/ChevronRightIcon";
 import { useRouter } from "next/router";
 import {
   GetServerSideProps,
   GetServerSidePropsContext,
   PreviewData,
 } from "next";
+import { MainLayout } from "src/layouts";
+import Image from "next/image";
 import axios from "axios";
-import MainLayout from "src/layouts/MainLayout";
 
 import Head from "next/head";
+import { SubtypeProps } from "src/pages/types";
+import { AttributesProps } from "src/components/home/types";
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext<any, PreviewData>
 ) => {
@@ -27,9 +27,9 @@ export const getServerSideProps: GetServerSideProps = async (
     }, // will be passed to the page component as props
   };
 };
-const KitsuAll = ({ result, genre }) => {
+const KitsuAll = ({ result, genre }: SubtypeProps) => {
   const router = useRouter();
-  const handleNavigation = (id): any => {
+  const handleNavigation = (id: number): any => {
     router.push(`/kitsu/details/${id}`);
   };
   return (
@@ -45,7 +45,7 @@ const KitsuAll = ({ result, genre }) => {
           <span className="text-red-500 font-extrabold italic">{genre}</span>
         </h1>
         <div className="flex flex-wrap items-center justify-center">
-          {result.data.map(({ attributes, id }) => (
+          {result.data.map(({ attributes, id }: AttributesProps) => (
             <div key={id}>
               <div className="relative h-64 w-52 m-5 sm:h-60 inset-0 bg-cover bg-center z-0">
                 <Image
@@ -71,7 +71,5 @@ const KitsuAll = ({ result, genre }) => {
     </MainLayout>
   );
 };
-
-KitsuAll.propTypes = {};
 
 export default KitsuAll;

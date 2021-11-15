@@ -1,8 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-
 import ReactPaginate from "react-paginate";
-const CustomPagination = ({ pageCount, onPageChange }) => {
+
+interface CustomPaginationProps {
+  pageCount: number;
+  onPageChange: any;
+}
+const CustomPagination = ({
+  pageCount,
+  onPageChange,
+}: CustomPaginationProps) => {
   return (
     <ReactPaginate
       previousLabel={"<"}
@@ -19,7 +24,5 @@ const CustomPagination = ({ pageCount, onPageChange }) => {
     />
   );
 };
-
-CustomPagination.propTypes = {};
 
 export default CustomPagination;

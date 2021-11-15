@@ -1,21 +1,22 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { AttributesProps, KitsuAnimeProps } from "./types";
 import CustomPagination from "../shared/CustomPagination";
 import Image from "next/image";
 import ChevronRightIcon from "src/icons/ChevronRightIcon";
 
-const KitsuAnime = ({ title, result }) => {
+const KitsuAnime = ({ title, result }: KitsuAnimeProps) => {
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState(0);
   // get the current page
-  const onPageChange = ({ selected: selectedPage }) => {
+  const onPageChange = ({ selected: selectedPage }: { selected: number }) => {
     setCurrentPage(selectedPage);
   };
   const PER_PAGE = 10;
   const offset = currentPage * PER_PAGE;
   let pageCount = result.data.length / 10;
 
-  const handleNavigation = (id): any => {
+  const handleNavigation = (id: number): any => {
     router.push(`/kitsu/details/${id}`);
   };
 
@@ -41,7 +42,7 @@ const KitsuAnime = ({ title, result }) => {
         {result.data?.length &&
           result.data
             .slice(offset, offset + PER_PAGE)
-            .map(({ attributes, id }) => (
+            .map(({ attributes, id }: AttributesProps) => (
               <div className="mb-2" key={id}>
                 <div className="relative h-64 w-52 m-5 sm:h-60 inset-0 bg-cover bg-center z-0">
                   <Image
@@ -66,7 +67,4 @@ const KitsuAnime = ({ title, result }) => {
     </div>
   );
 };
-
-KitsuAnime.propTypes = {};
-
 export default KitsuAnime;

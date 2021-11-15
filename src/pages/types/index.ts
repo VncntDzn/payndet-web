@@ -7,3 +7,17 @@ export interface IndexProps {
   upcoming: AxiosResponse<any, any>;
   current: AxiosResponse<any, any>;
 }
+
+export interface AxiosResponseProps {}
+export interface DetailsProps {
+  reviewsRes: AxiosResponse<any, any>;
+  detailsRes: AxiosResponse<any, any>;
+}
+export interface SubtypeProps {
+  result: AxiosResponse<any, any>;
+  genre?: string;
+}
+
+export interface KitsuProps {
+  result: AxiosResponse<any, any>;
+}
