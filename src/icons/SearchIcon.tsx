@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const SearchIcon = (props) => {
+const SearchIcon = ({className}) => {
   return (
     <svg
-      {...props}
-      className="w-6 h-6"
+    
+      className={`${className} w-6 h-6`}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"

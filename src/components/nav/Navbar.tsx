@@ -29,8 +29,8 @@ const Navbar = () => {
         </ActiveLink>
       </div>
       <div className="col-span-3 sm:col-span-2 flex justify-evenly items-center">
-        <SearchIcon />
-        <Hamburger color="orange" size={23} hideOutline={true} />
+        <SearchIcon className="text-red-500" />
+        <Hamburger color="#EF4444" size={23} hideOutline={true} />
       </div>
     </nav>
   );
