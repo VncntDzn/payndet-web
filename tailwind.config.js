@@ -22,11 +22,16 @@ module.exports = {
         black: {
           DEFAULT: "#081347",
         },
+        custom: {
+          DEFAULT: "#102791",
+          light: "#EF4444",
+        },
       },
     },
   },
   variants: {
+    scrollbar: ['rounded'],
     extend: {},
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")],
 };

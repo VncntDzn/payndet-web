@@ -1,8 +1,8 @@
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { useRouter } from "next/router";
-import Image from "next/image";
 import { StarIcon } from "src/icons";
+import Image from "next/image";
 
 const CustomCarousel = ({ data }) => {
   const router = useRouter();

@@ -14,17 +14,17 @@ const UpcomingAnime = ({ data }) => {
   return (
     <div className="flex flex-col my-5">
       <div className="flex justify-between mx-3">
-        <h1 className="text-red-600 text-2xl">Upcoming</h1>
+        <h1 className="text-red-500 xl:text-3xl">Upcoming</h1>
         <div className=" flex justify-center items-center text-white shadow-md">
           <CustomPagination pageCount={pageCount} onPageChange={onPageChange} />
         </div>
       </div>
 
       {/* Overflow to have horizontal scroll */}
-      <div className="flex overflow-x-scroll">
+      <div className="flex overflow-x-auto scrollbar scrollbar-thumb-custom-light scrollbar-track-custom  scrollbar-thumb-rounded-full scrollbar-track-rounded-full xl:mx-3">
         {data.data?.length &&
           data.data.slice(offset, offset + PER_PAGE).map((d, i) => (
-            <div key={i}>
+            <div className="mb-2" key={i}>
               <div className="relative h-64 w-52 m-5 sm:h-60">
                 <Image
                   src={d.attributes.posterImage.original}
