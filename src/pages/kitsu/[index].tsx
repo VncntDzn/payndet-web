@@ -8,7 +8,7 @@ import {
 } from "next";
 import axios from "axios";
 import Image from "next/image";
-import { KitsuProps } from "../types";
+import { KitsuProps } from "../../types";
 
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext<any, PreviewData>

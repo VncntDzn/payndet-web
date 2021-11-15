@@ -9,7 +9,7 @@ import Image from "next/image";
 import axios from "axios";
 
 import Head from "next/head";
-import { SubtypeProps } from "src/pages/types";
+import { SubtypeProps } from "src/types";
 import { AttributesProps } from "src/components/home/types";
 
 export const getServerSideProps: GetServerSideProps = async (

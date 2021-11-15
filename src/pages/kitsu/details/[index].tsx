@@ -6,7 +6,7 @@ import {
 } from "next";
 import { KitsuDetails, CustomTabs, KitsuReviews } from "src/components";
 import { MainLayout } from "src/layouts";
-import { DetailsProps } from "src/pages/types";
+import { DetailsProps } from "src/types";
 import axios from "axios";
 import YouTube from "react-youtube";
 import Head from "next/head";
