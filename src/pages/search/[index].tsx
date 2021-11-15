@@ -28,7 +28,13 @@ export const getServerSideProps: GetServerSideProps = async (
     }, // will be passed to the page component as props
   };
 };
-const SearchResult = ({ result, searchTitle }: SubtypeProps) => {
+const SearchResult = ({
+  result,
+  searchTitle,
+}: {
+  result: any;
+  searchTitle: string;
+}) => {
   const router = useRouter();
   const handleNavigation = (id: number): any => {
     router.push(`/kitsu/details/${id}`);
@@ -43,10 +49,7 @@ const SearchResult = ({ result, searchTitle }: SubtypeProps) => {
       <div className="flex flex-col items-center justify-center my-12 xl:my-16">
         <h1 className="self-start text-xl px-3">
           Result for:{" "}
-          <span
-            className="text-red-500 font-extrabold italic"
-            onClick={() => console.log(result)}
-          >
+          <span className="text-red-500 font-extrabold italic">
             {searchTitle}
           </span>
         </h1>
