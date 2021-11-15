@@ -4,7 +4,7 @@ import {
   GetServerSidePropsContext,
   PreviewData,
 } from "next";
-import { IndexProps } from "./types";
+import { IndexProps } from "../types";
 import Head from "next/head";
 import MainLayout from "src/layouts/MainLayout";
 import axios from "axios";
