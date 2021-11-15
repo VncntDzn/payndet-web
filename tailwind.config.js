@@ -8,15 +8,13 @@ module.exports = {
   theme: {
     extend: {
       height: {
-        '60vh': '60vh',
-        '75vh': '75vh',
+        "60vh": "60vh",
+        "75vh": "75vh",
       },
       width: {
-        '90vw': '90vw',
+        "90vw": "90vw",
       },
-      fontFamily: {
-        sans: ["Raleway", "sans-serif"],
-      },
+
       colors: {
         orange: {
           DEFAULT: "#FF6721",

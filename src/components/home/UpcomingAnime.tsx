@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import CustomPagination from "../shared/CustomPagination";
 import Image from "next/image";
 
@@ -9,31 +8,32 @@ const UpcomingAnime = ({ data }) => {
   const onPageChange = ({ selected: selectedPage }) => {
     setCurrentPage(selectedPage);
   };
-  const PER_PAGE = 2;
+  const PER_PAGE = 10;
   const offset = currentPage * PER_PAGE;
-  let pageCount = data.data.length / 5;
+  let pageCount = data.data.length / 10;
   return (
     <div className="flex flex-col my-5">
-      <div className="flex justify-between">
-        <h1 className="text-orange text-2xl">Upcoming</h1>
-        <div className="bg-red-500 flex justify-center items-center shadow-md">
+      <div className="flex justify-between mx-3">
+        <h1 className="text-red-600 text-2xl">Upcoming</h1>
+        <div className=" flex justify-center items-center text-white shadow-md">
           <CustomPagination pageCount={pageCount} onPageChange={onPageChange} />
         </div>
       </div>
-      <div className="flex">
+
+      {/* Overflow to have horizontal scroll */}
+      <div className="flex overflow-x-scroll">
         {data.data?.length &&
           data.data.slice(offset, offset + PER_PAGE).map((d, i) => (
-            <div className="relative h-52 w-52 m-5" key={i}>
-              <Image
-                src={d.attributes.posterImage.original}
-                quality={100}
-                layout="fill"
-                objectFit="cover"
-                alt={d.attributes.titles.en_jp}
-              />
-              <h1 className="text-lg text-white">
-                {d.attributes.titles.en_jp}
-              </h1>
+            <div key={i}>
+              <div className="relative h-64 w-52 m-5 sm:h-60">
+                <Image
+                  src={d.attributes.posterImage.original}
+                  quality={100}
+                  layout="fill"
+                  objectFit="cover"
+                  alt={d.attributes.titles.en_jp}
+                />
+              </div>
             </div>
           ))}
       </div>

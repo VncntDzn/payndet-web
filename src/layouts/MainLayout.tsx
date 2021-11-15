@@ -6,9 +6,8 @@ const MainLayout = ({ children }) => {
   return (
     <>
       <Navbar />
-      <hr className="w-full" />
-      <main className="flex flex-col items-center">
-        <div className="w-full">{children}</div>
+      <main className="flex flex-col items-center xl:px-32">
+        <div className="w-full ">{children}</div>
       </main>
     </>
   );

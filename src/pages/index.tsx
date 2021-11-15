@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import MainLayout from "src/layouts/MainLayout";
 import axios from "axios";
-import { CustomCarousel, UpcomingAnime } from "src/components";
+import { CustomCarousel, Navbar, UpcomingAnime } from "src/components";
 import {
   GetServerSideProps,
   GetServerSidePropsContext,
