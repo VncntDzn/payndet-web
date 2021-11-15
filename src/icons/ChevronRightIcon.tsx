@@ -1,6 +1,3 @@
-import React from "react";
-import PropTypes from "prop-types";
-
 const ChevronRightIcon = () => {
   return (
     <svg
@@ -17,7 +14,5 @@ const ChevronRightIcon = () => {
     </svg>
   );
 };
-
-ChevronRightIcon.propTypes = {};
 
 export default ChevronRightIcon;

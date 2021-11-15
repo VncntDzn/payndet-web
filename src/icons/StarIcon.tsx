@@ -1,10 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-const StarIcon = ({className}) => {
+import { ClassNameProps } from "./types";
+ 
+const StarIcon = ({ className }: ClassNameProps) => {
   return (
     <svg
-    
       className={`${className} w-6 h-6`}
       fill="currentColor"
       viewBox="0 0 20 20"
@@ -14,7 +12,5 @@ const StarIcon = ({className}) => {
     </svg>
   );
 };
-
-StarIcon.propTypes = {};
 
 export default StarIcon;

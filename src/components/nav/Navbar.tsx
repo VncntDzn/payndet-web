@@ -1,14 +1,19 @@
+import { useState } from "react";
 import { useRouter } from "next/router";
 import { Squeeze as Hamburger } from "hamburger-react";
-import { SearchIcon } from "src/icons";
+import { SearchIcon, UserIcon } from "src/icons";
+import Search from "../shared/Search";
 import ActiveLink from "./ActiveLink";
+import HamburgerMenu from "./HamburgerMenu";
 
 const Navbar = () => {
+  const [toggle, setToggle] = useState<boolean>(false);
   const router = useRouter();
 
   const handleNavigation = () => {
     router.push("/");
   };
+
   return (
     <nav className="grid grid-cols-10 gap-5 w-full absolute top-0 z-50 bg-transparent justify-between items-center content-center py-2 px-3 xl:px-32">
       <button
@@ -21,17 +26,30 @@ const Navbar = () => {
         <ActiveLink className="text-red-500 text-xl" href="/">
           Home
         </ActiveLink>
-        <ActiveLink className="text-red-500 text-xl" href="/movies">
+        <ActiveLink className="text-red-500 text-xl" href="/genre/movie">
           Movies
         </ActiveLink>
-        <ActiveLink className="text-red-500 text-xl" href="/series">
+        <ActiveLink className="text-red-500 text-xl" href="/genre/tv">
           Series
         </ActiveLink>
       </div>
-      <div className="col-span-3 sm:col-span-2 flex justify-evenly items-center">
-        <SearchIcon className="text-red-500" />
-        <Hamburger color="#EF4444" size={23} hideOutline={true} />
+      <div className="col-span-3 flex justify-evenly items-center z-50 relative  sm:col-span-2">
+        <div className="hidden sm:block">
+          <Search />
+        </div>
+        <div className="hidden sm:block" onClick={() => router.push('/profile')}>
+          <UserIcon className="text-red-500" />
+        </div>
+        <div className="sm:hidden">
+          <Hamburger
+            onToggle={() => setToggle(!toggle)}
+            color="#EF4444"
+            size={23}
+            hideOutline={true}
+          />
+        </div>
       </div>
+      {toggle && <HamburgerMenu />}
     </nav>
   );
 };

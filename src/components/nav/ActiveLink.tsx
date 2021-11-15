@@ -7,8 +7,14 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 import PropTypes from "prop-types";
+import { ReactNode } from "react";
 
-const ActiveLink = ({ children, href = "/", className }) => {
+interface ActiveLinkProps {
+  children: ReactNode;
+  href: string;
+  className: string;
+}
+const ActiveLink = ({ children, href = "/", className }: ActiveLinkProps) => {
   const router = useRouter();
   const CONDITION = router.pathname === href ? `${className}` : "text-white";
   return (

@@ -1,10 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-const SearchIcon = ({className}) => {
+interface SearchIconProps {
+  className?: string;
+  onClick?: () => void;
+}
+const SearchIcon = ({ className, onClick }: SearchIconProps) => {
   return (
     <svg
-    
+      onClick={onClick}
       className={`${className} w-6 h-6`}
       fill="none"
       stroke="currentColor"
@@ -20,7 +21,4 @@ const SearchIcon = ({className}) => {
     </svg>
   );
 };
-
-SearchIcon.propTypes = {};
-
 export default SearchIcon;
