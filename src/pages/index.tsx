@@ -1,14 +1,13 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import MainLayout from "src/layouts/MainLayout";
-import axios from "axios";
-import { CustomCarousel, Navbar, UpcomingAnime } from "src/components";
+import { CustomCarousel, KitsuAnime } from "src/components";
 import {
   GetServerSideProps,
   GetServerSidePropsContext,
   PreviewData,
 } from "next";
-import CurrentAnime from "src/components/home/CurrentAnime";
+import { IndexProps } from "./types";
+import Head from "next/head";
+import MainLayout from "src/layouts/MainLayout";
+import axios from "axios";
 
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext<any, PreviewData>
@@ -33,13 +32,13 @@ export const getServerSideProps: GetServerSideProps = async (
   };
 };
 
-const Home: NextPage = ({
+const Home = ({
   trending,
   popular,
   favorites,
   upcoming,
   current,
-}) => {
+}: IndexProps) => {
   return (
     <>
       <Head>
@@ -49,10 +48,11 @@ const Home: NextPage = ({
       </Head>
 
       <MainLayout>
-        
         <CustomCarousel data={trending} />
-        <CurrentAnime result={current} />
-        <UpcomingAnime result={upcoming} />
+        <KitsuAnime title="Upcoming" result={upcoming} />
+        <KitsuAnime title="Popular" result={popular} />
+        <KitsuAnime title="Favorites" result={favorites} />
+        <KitsuAnime title="Current" result={current} />
       </MainLayout>
     </>
   );

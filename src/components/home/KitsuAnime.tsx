@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useRouter } from "next/router";
 import CustomPagination from "../shared/CustomPagination";
 import Image from "next/image";
 import ChevronRightIcon from "src/icons/ChevronRightIcon";
-import { useRouter } from "next/router";
 
-const UpcomingAnime = ({ result }) => {
+const KitsuAnime = ({ title, result }) => {
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState(0);
   // get the current page
@@ -19,7 +19,6 @@ const UpcomingAnime = ({ result }) => {
     router.push(`/kitsu/details/${id}`);
   };
 
-
   const handleKitsuAll = () => {
     router.push(`/kitsu/subtype/upcoming`);
   };
@@ -30,7 +29,7 @@ const UpcomingAnime = ({ result }) => {
           onClick={handleKitsuAll}
           className="flex items-center text-red-500 xl:text-3xl"
         >
-          Upcoming <ChevronRightIcon />
+          {title} <ChevronRightIcon />
         </button>
         <div className=" flex justify-center items-center text-white shadow-md">
           <CustomPagination pageCount={pageCount} onPageChange={onPageChange} />
@@ -68,6 +67,6 @@ const UpcomingAnime = ({ result }) => {
   );
 };
 
-UpcomingAnime.propTypes = {};
+KitsuAnime.propTypes = {};
 
-export default UpcomingAnime;
+export default KitsuAnime;
