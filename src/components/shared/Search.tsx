@@ -14,11 +14,12 @@ const Search = () => {
         className="w-36 p-3 bg-red-500 rounded-lg placeholder-white sm:w-32 xl:w-48"
         placeholder="Seach here..."
         onChange={(e) => setInput(e.target.value)}
+        required
       />
-      <SearchIcon
-        onClick={handleSearch}
-        className="absolute bottom-4 right-3"
-      />
+
+      <button onClick={handleSearch}>
+        <SearchIcon className="absolute bottom-4 right-3" />
+      </button>
     </div>
   );
 };

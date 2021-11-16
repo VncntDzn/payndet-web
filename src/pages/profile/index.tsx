@@ -9,7 +9,7 @@ const DATA = [
   },
   {
     icon: <UserIcon />,
-    name: "LinkedInIcon Profile",
+    name: "LinkedIn Profile",
     link: "https://www.linkedin.com/in/vincent-dizon-34831817b/",
   },
   {
