@@ -22,7 +22,7 @@ module.exports = {
           DEFAULT: "#FF6721",
         },
         black: {
-          DEFAULT: "#081347",
+          DEFAULT: "#000000",
         },
         custom: {
           DEFAULT: "#102791",

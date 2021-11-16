@@ -9,13 +9,13 @@ const Search = () => {
     router.push(`/search/${input}`);
   };
   return (
-    <div className="relative" onClick={() => console.log(23)}>
+    <div className="relative">
       <SearchIcon
         onClick={handleSearch}
         className="absolute bottom-3 right-3"
       />
       <input
-        className="w-32 p-3 bg-red-500 rounded-lg placeholder-white md:w-48"
+        className="w-36 p-3 bg-red-500 rounded-lg placeholder-white sm:w-32 xl:w-48"
         placeholder="Seach here..."
         onChange={(e) => setInput(e.target.value)}
       />

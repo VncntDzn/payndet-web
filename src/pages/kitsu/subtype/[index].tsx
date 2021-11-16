@@ -47,7 +47,7 @@ const KitsuAll = ({ result, genre }: SubtypeProps) => {
         <div className="flex flex-wrap items-center justify-center">
           {result.data.map(({ attributes, id }: AttributesProps) => (
             <div key={id}>
-              <div className="relative h-64 w-52 m-5 sm:h-60 inset-0 bg-cover bg-center z-0">
+              <div className="relative h-36 w-32 m-5  inset-0 bg-cover bg-center z-0 sm:h-60 sm:w-52">
                 <Image
                   src={attributes.posterImage.original}
                   quality={100}

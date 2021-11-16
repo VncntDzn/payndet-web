@@ -22,7 +22,7 @@ const Navbar = () => {
       >
         PAYNDET
       </button>
-      <div className="hidden self-center col-span-5 sm:flex justify-evenly items-center">
+      <div className="hidden self-center col-span-5 sm:flex justify-evenly items-center sm:col-span-4 lg:col-span-5">
         <ActiveLink className="text-red-500 text-xl" href="/">
           Home
         </ActiveLink>
@@ -33,7 +33,7 @@ const Navbar = () => {
           Series
         </ActiveLink>
       </div>
-      <div className="col-span-3 flex justify-evenly items-center z-50 relative  sm:col-span-2">
+      <div className="col-span-3 flex justify-evenly items-center z-50 relative  sm:col-span-3 lg:col-span-2">
         <div className="hidden sm:block">
           <Search />
         </div>
