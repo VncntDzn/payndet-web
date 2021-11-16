@@ -10,14 +10,14 @@ const Search = () => {
   };
   return (
     <div className="relative">
-      <SearchIcon
-        onClick={handleSearch}
-        className="absolute bottom-3 right-3"
-      />
       <input
         className="w-36 p-3 bg-red-500 rounded-lg placeholder-white sm:w-32 xl:w-48"
         placeholder="Seach here..."
         onChange={(e) => setInput(e.target.value)}
+      />
+      <SearchIcon
+        onClick={handleSearch}
+        className="absolute bottom-4 right-3"
       />
     </div>
   );
