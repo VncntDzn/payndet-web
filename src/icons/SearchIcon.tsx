@@ -6,7 +6,7 @@ const SearchIcon = ({ className, onClick }: SearchIconProps) => {
   return (
     <svg
       onClick={onClick}
-      className={`${className} w-5 h-5`}
+      className={`${className}`}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"

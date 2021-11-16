@@ -17,8 +17,8 @@ const Search = () => {
         required
       />
 
-      <button onClick={handleSearch}>
-        <SearchIcon className="absolute bottom-4 right-3" />
+      <button className="absolute bottom-4 right-3 w-5 h-5" onClick={handleSearch}>
+        <SearchIcon  />
       </button>
     </div>
   );
